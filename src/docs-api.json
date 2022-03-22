@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "RentX Documentation",
+    "version": "1.0",
+	"contact": {
+  "name": "Pablo Paiva Gineli",
+  "url": "https://www.linkedin.com/in/pablo-paiva-gineli-ba8189142/",
+  "email": "ti.pablopaiva@gmail.com"
+}
+  },
+  "servers": [
+    {
+      "url": "https://api.server.test/v1"
+    }
+  ],
+  "paths": {
+    "/categories": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create a category",
+        "description": "Create a new category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Category Test",
+                  "description": "Category description test"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+
+        ],
+        "responses": {
+            "200": {
+              "description": "Created"
+            },
+            "500": {
+              "description": "Category already exists"
+            }
+        }
+      },
+      "get": {
+        "tags": ["Category"],
+        "summary": "List all categories",
+        "description": "List all categories",
+        "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        }
+      }
+    }
+  }
+}

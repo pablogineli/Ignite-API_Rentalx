@@ -29,12 +29,14 @@ class ImportCategoryUseCase{
                 });
             })
                 .on("end", ()=>{
-                    resolve(categories);
+                    fs.promises.unlink(file.path)
+                    return resolve(categories);
                 })
                 .on("error",(err)=>{
                     reject(err)
                 });
         });
+
     }
 
    async execute(file: Express.Multer.File):Promise<void>{
@@ -52,7 +54,6 @@ class ImportCategoryUseCase{
                 })
             }
         })
-        console.log(categories);
     }
 }
 
