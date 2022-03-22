@@ -1,11 +1,11 @@
-import {v4 as uuidV4}from "uuid"
+import {v4 as uuidV4} from "uuid"
 
-class Category{
-
+class Specification{
     id?: string;
+
     name: string;
+
     description: string;
-    created_at: Date;
 
     constructor() {
         if (!this.id){
@@ -14,4 +14,4 @@ class Category{
     }
 }
 
-export {Category}
+export {Specification}
