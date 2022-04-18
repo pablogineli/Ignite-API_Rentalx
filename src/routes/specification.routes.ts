@@ -1,12 +1,10 @@
 import {Router} from "express";
-import {creteSpecificationController} from "../modules/cars/useCases/CreateSpecification";
-
+import { CreateSpecificationController} from "../modules/cars/useCases/CreateSpecification/CreateSpecificationController";
 const specificationRoutes =  Router();
 
+const creteSpecificationController = new CreateSpecificationController()
 
-specificationRoutes.post("/", (request, response)=>{
- return creteSpecificationController.handle(request, response)
-})
+specificationRoutes.post("/", creteSpecificationController.handle)
 
 
 export {specificationRoutes}
