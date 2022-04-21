@@ -1,6 +1,6 @@
-import {Request, Response} from "express";
+import { Request, Response } from "express";
 import {ImportCategoryUseCase} from "./ImportCategoryUseCase";
-import {container} from "tsyringe";
+import { container } from "tsyringe";
 
 
 class ImportCategoryController{
@@ -16,4 +16,4 @@ class ImportCategoryController{
     }
 }
 
-export {ImportCategoryController}
+export { ImportCategoryController }
