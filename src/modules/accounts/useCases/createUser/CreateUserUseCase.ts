@@ -1,8 +1,11 @@
-import {IUsersRepository} from "../../repositories/IUsersRepository";
+import "reflect-metadata";
+
 import {inject, injectable} from "tsyringe";
-import {ICreateUsersDTO} from "../../dtos/ICreateUsersDTO";
+
 import {hash} from "bcryptjs";
-import {AppErrors} from "../../../../Errors/AppErrors";
+import {AppErrors} from "@errors/AppErrors";
+import {IUsersRepository} from "@modules/accounts/repositories/IUsersRepository";
+import {ICreateUserDTO} from "@modules/accounts/dtos/ICreateUserDTO";
 
 @injectable()
 class CreateUserUseCase{
@@ -11,7 +14,7 @@ class CreateUserUseCase{
           private usersRepository: IUsersRepository
       ) {}
 
-      async execute({name, email, password, driver_license}:ICreateUsersDTO): Promise<void>{
+      async execute({name, email, password, driver_license}:ICreateUserDTO): Promise<void>{
 
             const userAlreadyExists = await this.usersRepository.findByEmail(email);
 

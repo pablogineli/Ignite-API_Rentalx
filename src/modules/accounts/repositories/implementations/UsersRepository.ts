@@ -1,5 +1,5 @@
 import {IUsersRepository} from "../IUsersRepository";
-import {ICreateUsersDTO} from "../../dtos/ICreateUsersDTO";
+import {ICreateUserDTO} from "../../dtos/ICreateUserDTO";
 import {getRepository, Repository} from "typeorm";
 import {User} from "../../entities/User";
 
@@ -11,7 +11,7 @@ class UsersRepository implements IUsersRepository{
         this.repository = getRepository(User)
     }
 
-    async create({name, email, password, driver_license, id, avatar}: ICreateUsersDTO): Promise<void> {
+    async create({name, email, password, driver_license, id, avatar}: ICreateUserDTO): Promise<void> {
         const user = this.repository.create({
             name,
             email,
