@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import {inject, injectable} from "tsyringe"
 import {ICategoriesRepository} from "../../repositories/ICategoriesRepository";
 import {AppErrors} from "../../../../Errors/AppErrors";
@@ -30,4 +31,4 @@ class CreateCategoryUseCase {
     }
 }
 
-export {CreateCategoryUseCase}
+export {CreateCategoryUseCase};
